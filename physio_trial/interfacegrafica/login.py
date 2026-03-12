@@ -45,6 +45,11 @@ class Login(BaseFrame):
 
         self.bnt_encerrar = self.widgets.button(self, texto="Encerrar", comando=self.encerrar, cor="red")
         self.bnt_encerrar.grid(row=3, column=2, sticky="w", padx=(10,20), pady=(20,20))
+        
+        self.entry_login.focus()
+        
+        self.entry_login.bind("<Return>", lambda event: self.bnt_entrar.invoke())
+        self.entry_senha.bind("<Return>", lambda event: self.bnt_entrar.invoke())
 
     def realizar_login(self):
         try:
@@ -87,3 +92,4 @@ class Login(BaseFrame):
             #self.entry_login.delete(0, "end")
             self.entry_senha.delete(0, "end")
             return
+  
